@@ -2,6 +2,5 @@ streamlit
 pandas
 numpy
 pydantic==1.10.13
-#pydantic==2.7.4
-langchain==0.3.10
-langchain-openai==0.2.11
+langchain
+langchain-openai
