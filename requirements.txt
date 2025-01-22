@@ -1,0 +1,6 @@
+streamlit
+pandas
+numpy
+langchain_openai
+langchain
+openai
