@@ -4,7 +4,8 @@ import sqlite3
 import random
 
 from langchain_openai import ChatOpenAI
-from langchain.schema import AIMessage, HumanMessage, SystemMessage
+# from langchain.schema import AIMessage, HumanMessage, SystemMessage
+from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 from openai import OpenAI
 
 # from dotenv import load_dotenv
