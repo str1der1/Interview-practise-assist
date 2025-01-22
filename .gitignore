@@ -1,0 +1,158 @@
+
+/venvAA1
+/src/__pycache__
+/.streamlit\secrets.toml
+1 langchain_apps/2 first_chatgpt_access_Windows_app.py
+1 langchain_apps/3 sending multiple mesages via langchain openAi .py
+1 langchain_apps/4 using prompt template.py
+1 langchain_apps/5 parsing the output.py
+1 langchain_apps/6 creating first chain.py
+1 langchain_apps/7 Using other models.py
+1 langchain_apps/8 Real time chat with Cloudstorage.py
+1 langchain_apps/10 Back to prompt templates.py
+1 langchain_apps/11 Back to chains.py
+1 langchain_apps/12 Chains under the Hood.py
+1 langchain_apps/13 -  Chains extended.py
+1 langchain_apps/14 - Parallel chains.py
+1 langchain_apps/15 Branching Chains.py
+1 langchain_apps/16 RAG basics 1a.py
+1 langchain_apps/16 RAG basics 1b.py
+1 langchain_apps/17 VectorDB query with metadata 2b.py
+1 langchain_apps/17 VectorDB write with metadata 2a.py
+1 langchain_apps/18  VectorDB query with diff text splitting.py
+1 langchain_apps/19 Using different embedding models.py
+1 langchain_apps/20 - using different retriever options.py
+1 langchain_apps/21 - Vectior DB  with LLM call.py
+1 langchain_apps/22 - RAG and conversational LLM.py
+1 langchain_apps/23 - web crawling into a VectorDB - basic scraping.py
+1 langchain_apps/24 - Improved web crawling using Firecrawl.py
+1 langchain_apps/25 -  First use of AgentExecutor and ReAct.py
+1 langchain_apps/26 - Agents and wikipedia Tool.py
+1 langchain_apps/27 -  Agents and VectorDB.py
+1 langchain_apps/28 - Agents and multiple Tools with Tool constructoir.py
+1 langchain_apps/29 Agents with Tools using Tool decorator .py
+1 langchain_apps/30 - Agent Tools via BaseTool class.py
+1 langchain_apps/Temp - wikipedia call check.py
+1 langchain_apps/books/adventures_of_huckleberry_finn.txt
+1 langchain_apps/books/adventures_of_sherlock_holmes.txt
+1 langchain_apps/books/declaration_of_independence_of_the_united_states.txt
+1 langchain_apps/books/Frankenstein.txt
+1 langchain_apps/books/iliad.txt
+1 langchain_apps/books/langchain_demo.txt
+1 langchain_apps/books/moby_dick.txt
+1 langchain_apps/books/mobydick.txt
+1 langchain_apps/books/odyssey.txt
+1 langchain_apps/books/pride_and_prejudice.txt
+1 langchain_apps/books/romeo_and_juliet.txt
+1 langchain_apps/books/scarlet_letter.txt
+1 langchain_apps/books/strange_case_of_dr_jekyll_and_mr_hyde.txt
+1 langchain_apps/books/tale_of_two_cities.txt
+1 langchain_apps/books/ulysses.txt
+1 langchain_apps/books/us_bill_of_rights.txt
+1 langchain_apps/books/war_and_peace.txt
+###  MOVED TO LOCAL DIRECTORY FOR FASTER OPs ## .txt
+AIQB- Nov 24.docx
+###  MOVED TO LOCAL DIRECTORY FOR FASTER OPs ## .txt
+AIQB- Nov 24.docx
+1 langchain_apps/2 first_chatgpt_access_Windows_app.py
+1 langchain_apps/3 sending multiple mesages via langchain openAi .py
+1 langchain_apps/4 using prompt template.py
+1 langchain_apps/5 parsing the output.py
+1 langchain_apps/6 creating first chain.py
+1 langchain_apps/7 Using other models.py
+1 langchain_apps/8 Real time chat with Cloudstorage.py
+1 langchain_apps/10 Back to prompt templates.py
+1 langchain_apps/11 Back to chains.py
+1 langchain_apps/12 Chains under the Hood.py
+1 langchain_apps/13 -  Chains extended.py
+1 langchain_apps/14 - Parallel chains.py
+1 langchain_apps/15 Branching Chains.py
+1 langchain_apps/16 RAG basics 1a.py
+1 langchain_apps/16 RAG basics 1b.py
+1 langchain_apps/17 VectorDB query with metadata 2b.py
+1 langchain_apps/17 VectorDB write with metadata 2a.py
+1 langchain_apps/18  VectorDB query with diff text splitting.py
+1 langchain_apps/19 Using different embedding models.py
+1 langchain_apps/20 - using different retriever options.py
+1 langchain_apps/21 - Vectior DB  with LLM call.py
+1 langchain_apps/22 - RAG and conversational LLM.py
+1 langchain_apps/23 - web crawling into a VectorDB - basic scraping.py
+1 langchain_apps/24 - Improved web crawling using Firecrawl.py
+1 langchain_apps/25 -  First use of AgentExecutor and ReAct.py
+1 langchain_apps/26 - Agents and wikipedia Tool.py
+1 langchain_apps/27 -  Agents and VectorDB.py
+1 langchain_apps/28 - Agents and multiple Tools with Tool constructoir.py
+1 langchain_apps/29 Agents with Tools using Tool decorator .py
+1 langchain_apps/30 - Agent Tools via BaseTool class.py
+1 langchain_apps/Temp - wikipedia call check.py
+1 langchain_apps/books/adventures_of_huckleberry_finn.txt
+1 langchain_apps/books/adventures_of_sherlock_holmes.txt
+1 langchain_apps/books/declaration_of_independence_of_the_united_states.txt
+1 langchain_apps/books/Frankenstein.txt
+1 langchain_apps/books/iliad.txt
+1 langchain_apps/books/langchain_demo.txt
+1 langchain_apps/books/moby_dick.txt
+1 langchain_apps/books/mobydick.txt
+1 langchain_apps/books/odyssey.txt
+1 langchain_apps/books/pride_and_prejudice.txt
+1 langchain_apps/books/romeo_and_juliet.txt
+1 langchain_apps/books/scarlet_letter.txt
+1 langchain_apps/books/strange_case_of_dr_jekyll_and_mr_hyde.txt
+1 langchain_apps/books/tale_of_two_cities.txt
+1 langchain_apps/books/ulysses.txt
+1 langchain_apps/books/us_bill_of_rights.txt
+1 langchain_apps/books/war_and_peace.txt
+2 langflow - incomplete/31 - Langflow inital app.py
+2 langflow - incomplete/AskAIV2-2.json
+2 langflow - incomplete/AskAIV2.json
+2 langflow - incomplete/langflow_log.txt
+3 streamlit apps/1 First_streamlit_app.py
+3 streamlit apps/2 streamlit with text and image.py
+3 streamlit apps/3 streamlit with data elements.py
+3 streamlit apps/4 Chart elements.py
+3 streamlit apps/5 forms with streamlit.py
+3 streamlit apps/6 Using session state.py
+3 streamlit apps/7 - callbacks.py
+3 streamlit apps/8 Streamlit layouts.py
+3 streamlit apps/9 Turning Widgets on off.py
+3 streamlit apps/10 cache controls.py
+3 streamlit apps/11 Understanding st reruns.py
+3 streamlit apps/12 streamlit fragments.py
+3 streamlit apps/13a Native page rendering.py
+3 streamlit apps/13b non native pages rendering.py
+3 streamlit apps/static/Test_image.jpeg
+4 Combine langchain and streamlit/Home.py
+4 Combine langchain and streamlit/temp.py
+4 Combine langchain and streamlit/temp2-chatgptgenerated.py
+4 Combine langchain and streamlit/temp3-chatgptgeneratedusinglangchain.py
+4 Combine langchain and streamlit/temp4-chatgpt_withsuggestions.py
+4 Combine langchain and streamlit/temp5_chatgpt_withSearch.py
+4 Combine langchain and streamlit/temp6-tablesearchoutput.py
+4 Combine langchain and streamlit/temp7-reformat_with_coverletter.py
+4 Combine langchain and streamlit/temp8-switchtoTavaliyRetriever.py
+4 Combine langchain and streamlit/temp9-2columnlayout.py
+4 Combine langchain and streamlit/temp10-buttonprocessingsimilarity.py
+4 Combine langchain and streamlit/temp11-buttonCVimprovements.py
+4 Combine langchain and streamlit/temp12-SessionStore.py
+4 Combine langchain and streamlit/src/langchain_files.py
+5 CleanUpCVanalysiswithHomePage/Home.py
+5 CleanUpCVanalysiswithHomePage/src/.env
+5 CleanUpCVanalysiswithHomePage/src/CVanalysis.py
+5 CleanUpCVanalysiswithHomePage/src/__pycache__/CVanalysis.cpython-311.pyc
+6 AddInterviewPrep/amazonQBank_values_and_questions.db
+6 AddInterviewPrep/Home.py
+6 AddInterviewPrep/src/amazonQBank_values_and_questions.db
+6 AddInterviewPrep/src/CvUpdateReview.py
+6 AddInterviewPrep/src/InterviewPrep_old.py
+6 AddInterviewPrep/src/InterviewPrep.py
+6 AddInterviewPrep/src/SetupFiles/AIQB- Nov 24.docx
+6 AddInterviewPrep/src/SetupFiles/read_word_table_into_db.py
+7 Gmail app/amazonQBank_values_and_questions.db
+7 Gmail app/Home.py
+7 Gmail app/src/amazonQBank_values_and_questions.db
+7 Gmail app/src/CvUpdateReview.py
+7 Gmail app/src/gmailSummary.py
+7 Gmail app/src/InterviewPrep.py
+7 Gmail app/src/SetupFiles/AIQB- Nov 24.docx
+7 Gmail app/src/SetupFiles/read_word_table_into_db.py
+.streamlit/secrets.toml
