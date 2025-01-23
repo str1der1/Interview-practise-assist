@@ -3,12 +3,12 @@ import streamlit as st
 import sqlite3
 import random
 
-from langchain_openai import ChatOpenAI
+from langchain_openai import ChatOpenAI OpenAI
 # from langchain.schema import AIMessage, HumanMessage, SystemMessage
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
-from openai import OpenAI
+#from openai import OpenAI
 
-langchain.verbose = False
+# langchain.verbose = False
 
 # from dotenv import load_dotenv
 import os
