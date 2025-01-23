@@ -8,6 +8,8 @@ from langchain_openai import ChatOpenAI
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 from openai import OpenAI
 
+langchain.verbose = False
+
 # from dotenv import load_dotenv
 import os
 
