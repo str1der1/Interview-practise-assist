@@ -3,11 +3,11 @@
 import os
 import sqlite3
 import streamlit as st
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from pprint import pprint
 from datetime import datetime
 import random
-from tabulate import tabulate
+# from tabulate import tabulate
 
 # Langgraph imports
 from langgraph.graph import StateGraph, START, END
@@ -30,7 +30,7 @@ from elevenlabs import save
 
 
 # Load environment variables
-load_dotenv()
+# load_dotenv()
 openai_api_key = st.secrets["OPENAI_API_KEY"]
 db_url = st.secrets["database_url"]
 elevenlabs_api_key = st.secrets["ELEVENLABS_API_KEY"]
@@ -289,7 +289,7 @@ def text_to_speech(text, method="offline"):
     """
 
     # DEBUG 
-    print(f"Text to speech method called with method: {method} and text: {text}")
+    # print(f"Text to speech method called with method: {method} and text: {text}")
 
     if not text:
         return None  # No text to speak
@@ -556,7 +556,7 @@ def interview_question_evaluator2_with_langgraph():
                 st.write(f"For Question {i+1}:")
                 
                 # DEBUG
-                print(f"pre call the audio spinnner,  Question {i+1} ")
+                # print(f"pre call the audio spinnner,  Question {i+1} ")
 
                 # Generate and play audio feedback
                 with st.spinner('Generating audio feedback...'):

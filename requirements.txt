@@ -1,7 +1,11 @@
 streamlit
 pandas
 numpy
-pydantic==1.10.13
+langgraph
+langchain_openai
 langchain
-langchain-openai
-langchain-core
+typing
+openai
+pyttsx3
+gtts
+elevenlabs
