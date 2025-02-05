@@ -448,7 +448,7 @@ def interview_question_evaluator2_with_langgraph():
             st.audio(audio_data, format="audio/wav")
 
             # Transcribe audio when button is clicked
-            if st.button("Transcribe Audio",key=f"transcribe_button_{i}"):
+            if st.button("Transcribe from audio input",key=f"transcribe_button_{i}"):
                 st.write("Transcribing audio...")
                 
                 transcription = transcribe_audio(audio_data)
