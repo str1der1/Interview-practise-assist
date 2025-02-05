@@ -45,7 +45,6 @@ llm = ChatOpenAI(
 )
 
 # Initialise the main dictionary to store the questions and answers
-# st.session_state.stored_q_and_a_dict = {}  # Dictionary to store answers for each question asked , Key = Question,  Value = Answer
 st.session_state.stored_q_and_a_list = []  # List of Dictionary elements to store 1/ questions,  2/ answers, 3/ evaluation
 
 # Connect to SQLite Database
@@ -418,6 +417,7 @@ def interview_question_evaluator2_with_langgraph():
         competency_ids = [comp[1] for comp in st.session_state.selected_competencies]
         # print(f"Competency_IDs: {competency_ids}")
         # Fetch questions (count per competency) from DB
+        st.session_state.stored_q_and_a_list = []
         fetch_questions(competency_ids, st.session_state.stored_q_and_a_list, n=st.session_state.question_count)
 
 
