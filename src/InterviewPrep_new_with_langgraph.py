@@ -46,6 +46,7 @@ llm = ChatOpenAI(
 
 # Initialise the main dictionary to store the questions and answers
 st.session_state.stored_q_and_a_list = []  # List of Dictionary elements to store 1/ questions,  2/ answers, 3/ evaluation
+st.session_state.selected_competencies = []  # List of selected competencies
 
 # Connect to SQLite Database
 def connect_db():
