@@ -92,8 +92,6 @@ def transcribe_audio(audio_bytes):
         return f"Error transcribing audio: {e}"
     
 
-
-
 # #####################################
 
 # Define TypedDict for each evaluation type
@@ -326,7 +324,7 @@ def text_to_speech(text, method="offline"):
 
 
 
-# #######  MAIN function ######
+# #######  MAIN GRAPH setup and function ######
 
 
 # Initialize Graph
@@ -375,7 +373,8 @@ def run_graph_evaluation(question: str, answer: str, theme_name: str, strengths:
     return result
 
 
-# Main function 
+# ######  Main function Call - Streamlit App ######## 
+
 def interview_question_evaluator2_with_langgraph():
 
     # App Layout
@@ -385,22 +384,66 @@ def interview_question_evaluator2_with_langgraph():
     # Step 1: Select Competencies  - Give the user the option to select competencies
     st.header("1. Select Leadership Principles or Competencies")
     competencies = fetch_competencies()
+    
+    # DEBUG 
     # print(f"fetch competencies are : {competencies} ")
-    st.session_state.selected_competencies = st.multiselect(
-        "Select competencies:", options=[(c[0], c[1], c[2] ) for c in competencies], format_func=lambda x: x[1]
-    )
+    
+    # Move to use Colums 
+    col1, col2, = st.columns([3,1], border=True)
 
+    with col1:
+        st.subheader("Select Competency Themes")
+
+        st.session_state.selected_competencies = st.pills(
+            "Select",
+            options=[(c[0], c[1], c[2] ) for c in competencies],
+            format_func=lambda x: x[1],
+            selection_mode="multi",
+            default=st.session_state.selected_competencies     # THIS IS IMPORTANT TO UPDATE WITH RANDOM SET 
+        )
+    with col2:
+        st.subheader("Select Random Competencies")
+        num_random_competencies = st.slider("Select Random competencies", min_value=1, max_value=len(competencies))
+
+        # Button to pull random competencies
+        if st.button("Select Random Competencies"):
+            # Randomly select a subset of competencies
+            random_competencies = random.sample(competencies, num_random_competencies)
+            
+            # DEBUG 
+            # pprint(f"Random Competencies {len(random_competencies)} Selected : {random_competencies}")
+
+            # Update the session state with the randomly selected IDs
+            st.session_state.selected_competencies = random_competencies
+            
+            # Rerun the app to reflect the changes
+            st.rerun()
+
+        # Button to pull random competencies
+        if st.button("Reset"):
+            random_competencies = []
+            st.session_state.selected_competencies = []
+            # Refresh the app to reflect the changes
+            st.rerun()
+
+
+    # DEBUG
     # print("competencies selected")
-    # print(selected_competencies)
-    #print(selected_competencies[0][0])
+    # pprint(f"Selected Competencies {len(st.session_state.selected_competencies)} Selected : {st.session_state.selected_competencies}")
 
-    # Step 2: Select Questions   - From the themes selected, isolate the competencies and give option to select # of questions
+    # Step 2: Select How many questions   - From the themes selected, isolate the competencies and give option to select # of questions
     if st.session_state.selected_competencies:
+        # # Pull competency and Description from DB pull 
+        # st.session_state.competencyList = [ (comp[1], comp[2]) for comp in st.session_state.selected_competencies]
+        # # print(f"CompetencyList:  {competencyList}" )
+        # for index, comp in enumerate(st.session_state.competencyList):
+        #     # st.text_area(f"Description for -- {comp[0]}:", value=f"{comp[1]}" , height=100)
+
         # Pull competency and Description from DB pull 
-        st.session_state.competencyList = [ (comp[1], comp[2]) for comp in st.session_state.selected_competencies]
+        # st.session_state.competencyList = [ (comp[1], comp[2]) for comp in st.session_state.selected_competencies]
         # print(f"CompetencyList:  {competencyList}" )
-        for index, comp in enumerate(st.session_state.competencyList):
-            st.text_area(f"Description for -- {comp[0]}:", value=f"{comp[1]}" , height=100)
+        for index, comp in enumerate(st.session_state.selected_competencies):
+            st.markdown(f"**[{comp[1]}]**: {comp[2]}" )
 
         st.header("2. Select Num of Questions")
         st.session_state.question_count  = st.slider("Number of Questions per competency", min_value=1, max_value=5, value=0)
@@ -420,6 +463,8 @@ def interview_question_evaluator2_with_langgraph():
         st.session_state.stored_q_and_a_list = []
         fetch_questions(competency_ids, st.session_state.stored_q_and_a_list, n=st.session_state.question_count)
 
+
+    st.divider()
 
     # Show Questions 
     #  Based on if there is stored Questions,  hopefully answers and evals too,  but dont know what state this is called 
