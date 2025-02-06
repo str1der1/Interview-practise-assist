@@ -9,3 +9,4 @@ openai
 pyttsx3
 gtts
 elevenlabs
+ffmpeg-python

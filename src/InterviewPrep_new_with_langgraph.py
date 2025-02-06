@@ -27,6 +27,7 @@ from gtts import gTTS
 import tempfile
 from elevenlabs.client import ElevenLabs
 from elevenlabs import save
+import ffmpeg
 
 
 # Load environment variables
@@ -80,18 +81,38 @@ def fetch_questions(competencies, stored_question_list, n=3 ):
         stored_question_list.append(entry)
    
 
+# Function to compress audio using python-ffmpeg (without subprocess)
+def compress_audio(input_path, output_path, bitrate="32k", sample_rate=16000):
 
-# Function to transcribe audio using OpenAI's Whisper API
-def transcribe_audio(audio_bytes):
+    # DEBUG
+    # print(f"[Compress audio Function]  Compressing audio from {input_path} to {output_path}...")
+
     try:
-            transcript = openAI_client.audio.transcriptions.create(
-                model="whisper-1",
-                file = audio_bytes
-            )
-            return transcript.text    
+        # Print the FFmpeg command for debugging
+        stream = ffmpeg.input(input_path)
+        stream = ffmpeg.output(stream, output_path, audio_bitrate=bitrate, ar=sample_rate, ac=1)
+        print("FFmpeg command:", ffmpeg.compile(stream))
+        
+        # Run the command
+        ffmpeg.run(stream, overwrite_output=True)
+        return output_path    
+  
     except Exception as e:
         return f"Error transcribing audio: {e}"
-    
+
+
+# Function to transcribe audio using OpenAI's Whisper API
+def transcribe_audio(audio_path):
+    try:
+        with open(audio_path, "rb") as audio_file:
+            transcript = openAI_client.audio.transcriptions.create(
+                model="whisper-1",
+                file=audio_file
+            )
+        return transcript.text    
+    except Exception as e:
+        return f"Error transcribing audio: {e}"
+
 
 # #####################################
 
@@ -447,7 +468,7 @@ def interview_question_evaluator2_with_langgraph():
             st.markdown(f"**[{comp[1]}]**: {comp[2]}" )
 
         st.header("2. Select Num of Questions")
-        st.session_state.question_count  = st.slider("Number of Questions per competency", min_value=1, max_value=5, value=0)
+        st.session_state.question_count  = st.slider("Number of Questions per competency", min_value=1, max_value=5)
         st.session_state.pull_questions = st.button("Pull Questions")
 
 
@@ -493,15 +514,54 @@ def interview_question_evaluator2_with_langgraph():
             # if audio_data is not None:
             st.audio(audio_data, format="audio/wav")
 
-            # Transcribe audio when button is clicked
-            if st.button("Transcribe from audio input",key=f"transcribe_button_{i}"):
-                st.write("Transcribing audio...")
+            # # Transcribe audio when button is clicked
+            # if st.button("Transcribe from audio input",key=f"transcribe_button_{i}"):
+            #     st.write("Transcribing audio...")
                 
-                transcription = transcribe_audio(audio_data)
-                st.write(transcription)
-                st.session_state.stored_q_and_a_list[i]['answer']  = transcription
+            #     transcription = transcribe_audio(audio_data)
+            #     st.write(transcription)
+            #     st.session_state.stored_q_and_a_list[i]['answer']  = transcription
 
-                st.rerun()  # Force a refresh to update the the text area population
+            #     st.rerun()  # Force a refresh to update the the text area population
+
+            # Transcribe audio when button is clicked
+            if st.button("Transcribe from audio input",key=f"transcribe_button_{i}") and audio_data:
+                # Save uploaded audio temporarily
+                with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as temp_audio:
+                    temp_audio.write(audio_data.read())  # FIX: No need for `.getvalue()`
+                    input_audio_path = temp_audio.name  # Path to original audio
+                
+                # Define output compressed file path
+                compressed_audio_path = input_audio_path.replace(".wav", "_compressed.mp3")
+
+                # Compress the audio using python-ffmpeg
+                compressed_path = compress_audio(input_audio_path, compressed_audio_path)
+                
+                # DEBUG
+                # pprint(f"Input audio stored at: {input_audio_path}")
+                # pprint(f"Compressed audio (before compression call) stored at: {compressed_audio_path}")
+                # pprint(f"Compressed audio Path (after compression) stored at: {compressed_path}")
+
+                if compressed_path:
+                    st.success("Audio compressed successfully!")
+
+                    # Trascribe using Whisper 
+                    transcription = transcribe_audio(compressed_path)
+
+                    st.session_state.stored_q_and_a_list[i]['answer'] = transcription
+
+                    st.rerun()  # Refresh Streamlit UI
+
+                    # DEBUG
+                    # pprint(f"Input audio stored at: {input_audio_path}")
+                    # pprint(f"Compressed audio stored at: {compressed_audio_path}")
+
+                    # Cleanup: Delete temporary files
+                    os.remove(input_audio_path)
+                    os.remove(compressed_audio_path)
+                else:
+                    st.error("Error compressing audio!")
+
 
 
     # Evaluation loop 
